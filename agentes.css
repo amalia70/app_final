@@ -1,0 +1,196 @@
+/* Estilos Generales - TEMA OSCURO */
+:root {
+    --background-color: #1a1a1a; /* Gris oscuro casi negro */
+    --card-color: #2a2a2a; /* Gris un poco más claro para las tarjetas */
+    --text-color: #e0e0e0; /* Gris muy claro para texto normal */
+    --title-color: #ffffff; /* Blanco para títulos principales */
+    --accent-color: #00aaff; /* Azul eléctrico vibrante */
+    --border-color: #444;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 2rem;
+    line-height: 1.6;
+}
+
+/* Cabecera */
+.main-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.main-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--title-color);
+}
+
+.main-header .subtitle {
+    font-size: 1.1rem;
+    color: #a0a0a0; /* Un gris más suave para el subtítulo */
+    max-width: 500px;
+    margin: 0.5rem auto 0;
+}
+
+/* Contenedor de Agentes */
+.agents-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Tarjeta de Agente */
+.agent-card {
+    background-color: var(--card-color);
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+.agent-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+    box-shadow: 0 8px 30px rgba(0, 170, 255, 0.15);
+}
+
+.agent-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.agent-icon {
+    font-size: 2rem;
+    margin-right: 1rem;
+    color: var(--accent-color);
+}
+
+.agent-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+    color: var(--title-color);
+}
+
+.agent-description {
+    font-size: 0.95rem;
+    color: var(--text-color);
+}
+
+/* Estilos para el Modal */
+.modal-hidden {
+    display: none;
+}
+
+.modal-visible {
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.modal-content {
+    background-color: var(--card-color);
+    margin: auto;
+    padding: 2rem 2.5rem;
+    border: 1px solid var(--border-color);
+    width: 90%;
+    max-width: 800px;
+    border-radius: 12px;
+    position: relative;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.4);
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+#modal-close-btn {
+    color: #aaa;
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 28px;
+    font-weight: bold;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+#modal-close-btn:hover,
+#modal-close-btn:focus {
+    color: var(--title-color);
+}
+
+.prompt-item h3 {
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+}
+
+.prompt-item pre {
+    background-color: var(--background-color);
+    padding: 1rem;
+    border-radius: 8px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-size: 0.9rem;
+    border: 1px solid var(--border-color);
+}
+
+.copy-btn {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--title-color);
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: background-color 0.2s, transform 0.2s;
+    font-weight: 600;
+}
+
+.copy-btn:hover {
+    background-color: #0099e6;
+    transform: scale(1.05);
+}
+
+/* Estilos para el botón de Netlify Identity */
+.netlify-identity-widget {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 101;
+}
+
+.netlify-identity-widget a {
+    color: var(--accent-color) !important;
+    background-color: var(--card-color) !important;
+    border: 1px solid var(--accent-color) !important;
+    padding: 8px 15px !important;
+    border-radius: 8px !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    transition: all 0.2s ease-in-out !important;
+}
+
+.netlify-identity-widget a:hover {
+    background-color: var(--accent-color) !important;
+    color: var(--title-color) !important;
+}

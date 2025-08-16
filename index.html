@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgentZen - Librería de Prompts</title>
+    <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <link rel="stylesheet" href="agentes.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo">AgentZen IA</div>
+        <div data-netlify-identity-button></div>
+    </header>
+
+    <div id="custom-login-btn-container">
+        <button id="custom-login-btn">Iniciar Sesión</button>
+    </div>
+
+    <div class="agents-container">
+        <div class="agent-card" data-agent="creativo">
+            <h3>✨ Agente Creativo</h3>
+            <p>Tu coach anti-bloqueo para generar ideas de contenido.</p>
+        </div>
+        <div class="agent-card" data-agent="propiedades">
+            <h3>🏠 Agente de Propiedades</h3>
+            <p>Crea descripciones de propiedades que venden un estilo de vida.</p>
+        </div>
+        <div class="agent-card" data-agent="redes">
+            <h3>📱 Agente de Redes Sociales</h3>
+            <p>Genera posts, ideas de carruseles y textos para anuncios.</p>
+        </div>
+        <div class="agent-card" data-agent="video">
+            <h3>🎬 Agente de Vídeo</h3>
+            <p>Crea guiones para Reels y vídeos de YouTube.</p>
+        </div>
+        <div class="agent-card" data-agent="email">
+            <h3>📧 Agente de Email Marketing</h3>
+            <p>Escribe secuencias de bienvenida, newsletters y más.</p>
+        </div>
+    </div>
+
+    <div id="prompt-modal" class="modal-hidden">
+        <div class="modal-content">
+            <button id="modal-close-btn">&times;</button>
+            <div id="prompt-details"></div>
+        </div>
+    </div>
+
+    <script src="agentes.js"></script>
+</body>
+</html>
