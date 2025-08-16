@@ -4,22 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AgentZen - Librería de Prompts</title>
-    <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="agentes.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 </head>
 <body>
 
-    <header class="main-header">
-        <div class="logo">AgentZen IA</div>
-        <div data-netlify-identity-button></div>
-    </header>
-
-    <div id="custom-login-btn-container">
-        <button id="custom-login-btn">Iniciar Sesión</button>
+    <div id="login-modal" class="modal-visible">
+        <div class="login-content">
+            <h2>Acceso Protegido</h2>
+            <p>Por favor, introduce la contraseña para continuar.</p>
+            <input type="password" id="password-input" placeholder="Contraseña">
+            <button id="login-btn">Entrar</button>
+            <p id="error-message" class="error-hidden">Contraseña incorrecta. Inténtalo de nuevo.</p>
+        </div>
     </div>
 
-    <div class="agents-container">
+    <header class="main-header" style="display: none;">
+        <img src="AgentZen AI logo.png" alt="AgentZen AI Logo" class="logo-img">
+        <h1 class="main-title">AgentZen IA</h1>
+        <p class="subtitle">Tu asistente de marketing inmobiliario. Elige un agente, explora sus prompts y copia el que necesites con un solo clic.</p>
+    </header>
+
+    <div class="agents-container" style="display: none;">
         <div class="agent-card" data-agent="creativo">
             <h3>✨ Agente Creativo</h3>
             <p>Tu coach anti-bloqueo para generar ideas de contenido.</p>

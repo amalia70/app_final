@@ -1,48 +1,29 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const mainContent = document.querySelector('.agents-container');
-    const header = document.querySelector('.main-header');
-    const customLoginBtn = document.getElementById('custom-login-btn');
+    const loginModal = document.getElementById('login-modal');
+    const loginBtn = document.getElementById('login-btn');
+    const passwordInput = document.getElementById('password-input');
+    const errorMessage = document.getElementById('error-message');
+    const mainHeader = document.querySelector('.main-header');
+    const agentsContainer = document.querySelector('.agents-container');
 
-    // Ocultar contenido principal y botón de login por defecto
-    mainContent.style.display = 'none';
-    header.style.display = 'none';
-    customLoginBtn.style.display = 'none';
+    // La contraseña correcta. Puedes cambiarla aquí.
+    const CORRECT_PASSWORD = 'admin';
 
-    // Netlify Identity Widget Listeners
-    netlifyIdentity.on('init', user => {
-        if (user) {
-            showContent(user);
+    loginBtn.addEventListener('click', () => {
+        if (passwordInput.value === CORRECT_PASSWORD) {
+            loginModal.style.display = 'none';
+            mainHeader.style.display = 'block';
+            agentsContainer.style.display = 'grid';
         } else {
-            showLoginButton();
+            errorMessage.className = 'error-visible';
+            passwordInput.value = '';
         }
     });
 
-    netlifyIdentity.on('login', user => {
-        showContent(user);
-        netlifyIdentity.close();
-    });
-
-    netlifyIdentity.on('logout', () => {
-        mainContent.style.display = 'none';
-        header.style.display = 'none';
-        showLoginButton();
-    });
-
-    // Función para mostrar el contenido principal
-    function showContent(user) {
-        mainContent.style.display = 'grid';
-        header.style.display = 'block';
-        customLoginBtn.style.display = 'none'; // Ocultar botón de login si ya está logueado
-    }
-
-    // Función para mostrar el botón de login
-    function showLoginButton() {
-        customLoginBtn.style.display = 'block';
-    }
-
-    // Event listener para el botón de login personalizado
-    customLoginBtn.addEventListener('click', () => {
-        netlifyIdentity.open();
+    passwordInput.addEventListener('keypress', (event) => {
+        if (event.key === 'Enter') {
+            loginBtn.click();
+        }
     });
 
     // --- El código para el modal y los prompts ---

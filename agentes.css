@@ -1,15 +1,15 @@
 /* Estilos Generales - TEMA OSCURO */
 :root {
-    --background-color: #1a1a1a; /* Gris oscuro casi negro */
-    --card-color: #2a2a2a; /* Gris un poco más claro para las tarjetas */
-    --text-color: #e0e0e0; /* Gris muy claro para texto normal */
-    --title-color: #ffffff; /* Blanco para títulos principales */
-    --accent-color: #00aaff; /* Azul eléctrico vibrante */
+    --background-color: #1a1a1a;
+    --card-color: #2a2a2a;
+    --text-color: #e0e0e0;
+    --title-color: #ffffff;
+    --accent-color: #2ecc71; /* Verde Esmeralda */
     --border-color: #444;
 }
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     background-color: var(--background-color);
     color: var(--text-color);
     margin: 0;
@@ -17,22 +17,33 @@ body {
     line-height: 1.6;
 }
 
-/* Cabecera */
-.main-header {
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
-.main-header h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
     color: var(--title-color);
 }
 
-.main-header .subtitle {
+/* Cabecera */
+.main-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.logo-img {
+    width: 100px;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.main-title {
+    font-size: 2.8rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.subtitle {
     font-size: 1.1rem;
-    color: #a0a0a0; /* Un gris más suave para el subtítulo */
-    max-width: 500px;
+    color: #a0a0a0;
+    max-width: 600px;
     margin: 0.5rem auto 0;
 }
 
@@ -53,38 +64,24 @@ body {
     border: 1px solid var(--border-color);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     cursor: pointer;
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border-color 0.2s ease-in-out;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .agent-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px) scale(1.02);
     border-color: var(--accent-color);
-    box-shadow: 0 8px 30px rgba(0, 170, 255, 0.15);
+    box-shadow: 0 10px 35px rgba(46, 204, 113, 0.15);
 }
 
-.agent-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1rem;
+.agent-card h3 {
+    font-size: 1.35rem;
+    margin-bottom: 0.5rem;
 }
 
-.agent-icon {
-    font-size: 2rem;
-    margin-right: 1rem;
-    color: var(--accent-color);
-}
-
-.agent-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin: 0;
-    color: var(--title-color);
-}
-
-.agent-description {
+.agent-card p {
     font-size: 0.95rem;
-    color: var(--text-color);
 }
+
 
 /* Estilos para el Modal */
 .modal-hidden {
@@ -104,6 +101,7 @@ body {
     align-items: center;
     justify-content: center;
     padding: 1rem;
+    backdrop-filter: blur(5px);
 }
 
 .modal-content {
@@ -167,30 +165,81 @@ body {
 }
 
 .copy-btn:hover {
-    background-color: #0099e6;
+    background-color: #27ae60; /* Un verde más oscuro al pasar el ratón */
     transform: scale(1.05);
 }
 
-/* Estilos para el botón de Netlify Identity */
-.netlify-identity-widget {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    z-index: 101;
+/* Estilos para el Modal de Login */
+#login-modal {
+    position: fixed;
+    z-index: 200;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(5px);
 }
 
-.netlify-identity-widget a {
-    color: var(--accent-color) !important;
-    background-color: var(--card-color) !important;
-    border: 1px solid var(--accent-color) !important;
-    padding: 8px 15px !important;
-    border-radius: 8px !important;
-    text-decoration: none !important;
-    font-weight: 600 !important;
-    transition: all 0.2s ease-in-out !important;
+.login-content {
+    background-color: var(--card-color);
+    padding: 2rem 2.5rem;
+    border-radius: 12px;
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.5);
 }
 
-.netlify-identity-widget a:hover {
-    background-color: var(--accent-color) !important;
-    color: var(--title-color) !important;
+.login-content h2 {
+    margin-bottom: 0.5rem;
+}
+
+.login-content p {
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+}
+
+#password-input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+#login-btn {
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 6px;
+    background-color: var(--accent-color);
+    color: var(--title-color);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+#login-btn:hover {
+    background-color: #27ae60;
+    transform: scale(1.03);
+}
+
+.error-hidden {
+    display: none;
+    color: #ff4d4d;
+    margin-top: 1rem;
+}
+
+.error-visible {
+    display: block;
+    color: #ff4d4d;
+    margin-top: 1rem;
 }
