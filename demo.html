@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgentZen - Demo</title>
+    <link rel="stylesheet" href="agentes.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo">AgentZen IA (Demo)</div>
+    </header>
+
+    <div class="agents-container">
+        <div class="agent-card" data-agent="creativo">
+            <h3>✨ Agente Creativo</h3>
+            <p>Tu coach anti-bloqueo para generar ideas de contenido.</p>
+        </div>
+        <div class="agent-card" data-agent="propiedades">
+            <h3>🏠 Agente de Propiedades</h3>
+            <p>Crea descripciones de propiedades que venden un estilo de vida.</p>
+        </div>
+    </div>
+
+    <div id="prompt-modal" class="modal-hidden">
+        <div class="modal-content">
+            <button id="modal-close-btn">&times;</button>
+            <div id="prompt-details"></div>
+        </div>
+    </div>
+
+    <script src="demo.js"></script>
+</body>
+</html>
